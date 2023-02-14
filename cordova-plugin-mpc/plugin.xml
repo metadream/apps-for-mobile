@@ -1,0 +1,23 @@
+<?xml version='1.0' encoding='utf-8'?>
+<plugin id="cordova-plugin-mpc" version="0.0.1" xmlns="http://apache.org/cordova/ns/plugins/1.0" xmlns:android="http://schemas.android.com/apk/res/android">
+  <name>MpcPlugin</name>
+
+  <js-module name="MpcPlugin" src="www/MpcPlugin.js">
+    <clobbers target="window.mpc"/>
+  </js-module>
+
+  <platform name="android">
+    <source-file src="src/android/MpcPlugin.java" target-dir="src/net/cloudseat/cordova"/>
+
+    <config-file target="res/xml/config.xml" parent="/*">
+      <feature name="MpcPlugin">
+        <param name="android-package" value="net.cloudseat.cordova.MpcPlugin"/>
+      </feature>
+    </config-file>
+
+    <config-file target="AndroidManifest.xml" parent="/manifest">
+      <uses-permission android:name="android.permission.INTERNET" />
+    </config-file>
+  </platform>
+
+</plugin>

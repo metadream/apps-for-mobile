@@ -1,0 +1,27 @@
+<?xml version='1.0' encoding='utf-8'?>
+<plugin id="cordova-plugin-fingerprint" version="0.0.1" xmlns="http://apache.org/cordova/ns/plugins/1.0" xmlns:android="http://schemas.android.com/apk/res/android">
+  <name>FingerprintPlugin</name>
+
+  <js-module name="FingerprintPlugin" src="www/fingerprint.js">
+    <clobbers target="window.fingerprint"/>
+  </js-module>
+
+  <platform name="android">
+    <source-file src="src/android/FingerprintPlugin.java" target-dir="src/net/cloudseat/fingerprint"/>
+    <source-file src="src/android/FingerprintDialogFragment.java" target-dir="src/net/cloudseat/fingerprint"/>
+
+    <source-file src="src/android/res/fingerprint_dialog.xml" target-dir="res/layout" />
+    <source-file src="src/android/res/fingerprint.png" target-dir="res/drawable" />
+
+    <config-file target="res/xml/config.xml" parent="/*">
+      <feature name="FingerprintPlugin">
+        <param name="android-package" value="net.cloudseat.fingerprint.FingerprintPlugin"/>
+      </feature>
+    </config-file>
+
+    <config-file target="AndroidManifest.xml" parent="/*">
+        <uses-permission android:name="android.permission.USE_FINGERPRINT" />
+    </config-file>
+  </platform>
+
+</plugin>

@@ -1,0 +1,52 @@
+<?xml version='1.0' encoding='utf-8'?>
+<plugin id="cordova-plugin-samba" version="0.0.1" xmlns="http://apache.org/cordova/ns/plugins/1.0" xmlns:android="http://schemas.android.com/apk/res/android">
+  <name>SambaPlugin</name>
+
+  <js-module name="SambaPlugin" src="www/SambaPlugin.js">
+    <clobbers target="window.samba"/>
+  </js-module>
+
+  <platform name="android">
+    <source-file src="src/android/SambaPlugin.java" target-dir="src/net/cloudseat/smbova"/>
+    <source-file src="src/android/SambaFile.java" target-dir="src/net/cloudseat/smbova"/>
+    <source-file src="src/android/gallery/GalleryActivity.java" target-dir="src/net/cloudseat/smbova"/>
+    <source-file src="src/android/gallery/GallerySource.java" target-dir="src/net/cloudseat/smbova"/>
+    <source-file src="src/android/gallery/PinchImageView.java" target-dir="src/net/cloudseat/smbova"/>
+    <source-file src="src/android/media/PlayerActivity.java" target-dir="src/net/cloudseat/smbova"/>
+    <source-file src="src/android/util/NativePath.java" target-dir="src/net/cloudseat/smbova"/>
+    <source-file src="src/android/util/WakeOnLan.java" target-dir="src/net/cloudseat/smbova"/>
+
+    <source-file src="src/android/res/libs/jcifs-1.3.19.jar" target-dir="libs" />
+    <source-file src="src/android/res/libs/bmds-0.4.jar" target-dir="libs" />
+
+    <source-file src="src/android/res/layout/gallery_item.xml" target-dir="res/layout" />
+    <source-file src="src/android/res/layout/gallery_viewer.xml" target-dir="res/layout" />
+    <source-file src="src/android/res/layout/media_player.xml" target-dir="res/layout" />
+
+    <source-file src="src/android/res/drawable/play.png" target-dir="res/drawable" />
+    <source-file src="src/android/res/drawable/pause.png" target-dir="res/drawable" />
+    <source-file src="src/android/res/drawable/disc.png" target-dir="res/drawable" />
+
+    <config-file target="res/xml/config.xml" parent="/*">
+      <feature name="SambaPlugin">
+        <param name="android-package" value="net.cloudseat.smbova.SambaPlugin"/>
+      </feature>
+    </config-file>
+
+    <config-file target="AndroidManifest.xml" parent="/manifest/application">
+      <activity android:name="net.cloudseat.smbova.GalleryActivity"
+        android:theme="@android:style/Theme.Holo.NoActionBar.Fullscreen"
+        android:configChanges="orientation|screenSize"/>
+
+      <activity android:name="net.cloudseat.smbova.PlayerActivity"
+        android:theme="@android:style/Theme.Holo.NoActionBar.Fullscreen"
+        android:configChanges="orientation|screenSize"/>
+    </config-file>
+
+    <config-file target="AndroidManifest.xml" parent="/manifest">
+      <uses-permission android:name="android.permission.INTERNET" />
+      <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+    </config-file>
+  </platform>
+
+</plugin>
