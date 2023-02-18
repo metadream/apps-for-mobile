@@ -3,7 +3,7 @@
 ## Installation
 
 ```
-cordova plugin add https://github.com/seatwork/cordova-plugin-samba
+cordova plugin add https://github.com/metadream/cordova-plugin-samba
 ```
 
 ## Simple Usage

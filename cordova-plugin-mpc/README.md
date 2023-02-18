@@ -5,7 +5,7 @@ This Cordova plugin provides JavaScript API, that allows you to communicate with
 ## Installation
 
 ```
-cordova plugin add https://github.com/seatwork/cordova-plugin-mpc
+cordova plugin add https://github.com/metadream/cordova-plugin-mpc
 ```
 
 ## Simple Usage
